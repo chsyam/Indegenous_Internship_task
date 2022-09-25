@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Get Details</title>
+        <style media="screen">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            margin: 10px
+        }
+        .flex{
+            border-bottom: 1px solid black;
+            box-shadow: 1px 1px 20px black;
+        }
+        .flex .list{
+            display: flex;
+            justify-content: right;
+            flex-wrap: wrap;
+        }
+        .flex_list .logs{
+            justify-content: space-evnly;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .flex_list .logs .item{
+            text-align: center;
+            width: 200px;
+            border: 1px solid green;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px;
+        }
+        .coockie button{
+            cursor:pointer;
+            margin: 20px;
+            font-weight: lighter;
+            padding: 10px;
+            border: 1px solid black;
+            box-shadow: 2px 2px 500px black;
+            border-radius: 5px;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background-color: white;
+        }
+        .coockie button a{
+            text-decoration: none;
+        }
+        .content{
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px;
+        }
+        .content span{
+            font-weight: lighter;
+            font-size: 20px;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="flex">
+            <div class="list">
+                <div class="coockie">
+                    <button><a href="home">Home</a></button>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="content">
+                These are all the Time logs of active users [<span> old to recent </span>]
+            </div>
+            <div class="flex_list">
+                <div class="logs">
+                    {% if users %}
+                        {% for i in users %}
+                        <div class="item">
+                            {{ i.updated_at }}
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

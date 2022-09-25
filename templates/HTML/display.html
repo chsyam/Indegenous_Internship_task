@@ -1,0 +1,165 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Indegenous</title>
+        <style media="screen">
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            .flex{
+                border-bottom: 1px solid black;
+                box-shadow: 10px 10px 200px black;
+            }
+            .flex .list{
+                display: flex;
+                justify-content: right;
+            }
+            .coockie button{
+                cursor:pointer;
+                margin: 20px;
+                font-weight: lighter;
+                padding: 10px;
+                border: 1px solid black;
+                box-shadow: 2px 2px 500px black;
+                border-radius: 5px;
+                font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                background-color: white;
+            }
+            .button{
+                width: max-content;
+                cursor:pointer;
+                margin: 5% auto;
+                font-weight: lighter;
+                padding: 10px;
+                border: 1px solid black;
+                border-radius: 5px;
+                background-color: white;
+            }
+            .coockie button a{
+                text-decoration: none;
+            }
+            .footer
+            {
+                width: 250px;
+                border-radius: 10px;
+                box-shadow: 2px 2px 500px black;
+                font-size: 18px;
+                font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                text-align: left;
+                background-color:blue;
+                position: absolute;
+                bottom: 10px;
+                left: 10px;
+                padding: 10px;
+                margin: auto;
+            }
+            .footer .cook_content
+            {
+                color: white;
+            }
+            #ok{
+                display: none;
+            }
+            label{
+                cursor: pointer;
+            }
+            #ok:checked ~ .footer{
+                display: none;
+            }
+            h2{
+                margin-top: 100px;
+                text-align: center;
+            }
+            h2 span{
+                margin:0 20px;
+                font-size: 58px;
+                text-decoration: underline;
+            }
+            .body{
+                margin-top:80px ;
+                justify-content: space-evenly;
+                display: flex;
+            }
+            .body .b1,.b2 {
+                font-family: monospace;
+                padding: 20px;
+                border: 1px solid black;
+                text-align: center;
+                font-size: 24px;
+            }
+            th{
+                text-align: center;
+                border-bottom: 1px solid black;
+            }
+            .b2 table td span{
+                font-size: 14px;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="checkbox" name="" id="ok" value="">
+        <div class="flex">
+            <div class="list">
+                <div class="coockie">
+                    <button type="submit"><a href="another">Another Page</a></button>
+                </div>
+                <div class="coockie">
+                    <form method="post">
+                        {% csrf_token %}
+                        <button type="submit">Click Here to Become an Active User</button>
+                    </form>
+                </div>
+                <div class="coockie">
+                    <button type="submit"><a href="all">Time Logs of all Active Users</a></button>
+                </div>
+            </div>
+        </div>
+        <h2>Till now <span>{{ count }}</span> active users are there...!</h2>
+        <div class="body">
+            <div class="b1">
+                <table>
+                    <thead>
+                        <th>
+                            TecStack
+                        </th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>django</td>
+                        </tr>
+                        <tr>
+                            <td>MySql Database</td>
+                        </tr>
+                        <tr>
+                            <td>HTML / CSS</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="b2">
+                <table>
+                    <thead>
+                        <th>About Me</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href="https://chsyamkumar.in/">Resume</a><br> <span>(in Developing stage)</span> </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="cook_content">
+                We use cookies to ensure you have the best browsing experience on our website.
+                Please be aware of our cookie policy for more information about how we use cookies.
+            </div>
+            <div class="button">
+                <label for="ok">OK</label>
+            </div>
+        </div>
+    </body>
+</html>
